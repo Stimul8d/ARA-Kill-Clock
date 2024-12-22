@@ -4,57 +4,47 @@ export interface AnimalCount {
     species: string;
     count: number;
     annualRate: number;
-    icon: string;
 }
 
-// Animals in descending order by annual rate
 export const animalCounts = writable<AnimalCount[]>([
     { 
         species: 'Shellfish',
         count: 0,
-        annualRate: 43_109_000_000,
-        icon: '🦐'
+        annualRate: 43_109_000_000
     },
     { 
         species: 'Chickens',
         count: 0,
-        annualRate: 8_127_632_113,
-        icon: '🐔'
+        annualRate: 8_127_632_113
     },
     { 
         species: 'Fish',
         count: 0,
-        annualRate: 3_797_000_000,
-        icon: '🐟'
+        annualRate: 3_797_000_000
     },
     { 
         species: 'Turkeys',
         count: 0,
-        annualRate: 214_508_816,
-        icon: '🦃'
+        annualRate: 214_508_816
     },
     { 
         species: 'Pigs',
         count: 0,
-        annualRate: 124_061_094,
-        icon: '🐷'
+        annualRate: 124_061_094
     },
     { 
         species: 'Cattle',
         count: 0,
-        annualRate: 36_163_973,
-        icon: '🐄'
+        annualRate: 36_163_973
     },
     { 
         species: 'Ducks',
         count: 0,
-        annualRate: 23_275_362,
-        icon: '🦆'
+        annualRate: 23_275_362
     },
     { 
         species: 'Sheep',
         count: 0,
-        annualRate: 7_499_676,
-        icon: '🐑'
+        annualRate: 7_499_676
     }
 ]);
