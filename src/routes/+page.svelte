@@ -18,7 +18,7 @@
 </script>
 
 <div class="h-screen flex flex-col">
-  <div class="pt-12"> <!-- Space for the header -->
+  <div class="pt-12"> 
     <TotalCounter />
   </div>
   <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 px-4" style="padding-bottom: 5vh;">
