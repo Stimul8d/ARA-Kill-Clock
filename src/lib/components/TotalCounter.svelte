@@ -39,12 +39,12 @@
   updateTotal();
 </script>
 
-<div class="flex flex-col items-center justify-center gap-8 my-12">
-  <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight">
+<div class="flex flex-col items-center justify-center gap-2 my-12">
+  <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight">
     In the last <span class="text-gray-400">{@html elapsedTime}</span>,<br>
     humans have taken the lives of
-  </div>
-  <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center">
+  </p>
+  <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight">
     <span class="font-mono text-red-500">{formattedTotal}</span>
     <span class="text-white">animals</span>
   </div>

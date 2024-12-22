@@ -3,7 +3,6 @@
   import Counter from '$lib/components/Counter.svelte';
   import TotalCounter from '$lib/components/TotalCounter.svelte';
   
-  // Update counts every second based on annual rate
   let startTime = Date.now();
   
   function updateCounts() {
@@ -18,10 +17,11 @@
   updateCounts();
 </script>
 
-<TotalCounter />
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  {#each $animalCounts as animal}
-    <Counter {animal} />
-  {/each}
+<div class="min-h-screen flex flex-col">
+  <TotalCounter />
+  <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 px-4" style="padding-bottom: 5vh;">
+    {#each $animalCounts as animal}
+      <Counter {animal} />
+    {/each}
+  </div>
 </div>

@@ -6,45 +6,46 @@ export interface AnimalCount {
     annualRate: number;
 }
 
+// Animals ordered by annual death rate (descending)
 export const animalCounts = writable<AnimalCount[]>([
     { 
-        species: 'Shellfish',
+        species: 'Fish',
         count: 0,
-        annualRate: 43_109_000_000
+        annualRate: 124_000_000_000
     },
     { 
         species: 'Chickens',
         count: 0,
-        annualRate: 8_127_632_113
+        annualRate: 75_208_676_000
     },
     { 
-        species: 'Fish',
+        species: 'Shellfish',
         count: 0,
-        annualRate: 3_797_000_000
-    },
-    { 
-        species: 'Turkeys',
-        count: 0,
-        annualRate: 214_508_816
-    },
-    { 
-        species: 'Pigs',
-        count: 0,
-        annualRate: 124_061_094
-    },
-    { 
-        species: 'Cows',
-        count: 0,
-        annualRate: 36_163_973
+        annualRate: 4_400_000_000
     },
     { 
         species: 'Ducks',
         count: 0,
-        annualRate: 23_275_362
+        annualRate: 3_190_336_000
+    },
+    { 
+        species: 'Pigs',
+        count: 0,
+        annualRate: 1_491_997_360
     },
     { 
         species: 'Sheep',
         count: 0,
-        annualRate: 7_499_676
+        annualRate: 637_269_688
+    },
+    { 
+        species: 'Turkeys',
+        count: 0,
+        annualRate: 515_228_000
+    },
+    { 
+        species: 'Cows',
+        count: 0,
+        annualRate: 308_640_252
     }
 ]);
