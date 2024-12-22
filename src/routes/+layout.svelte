@@ -4,9 +4,11 @@
   let { children } = $props();
 </script>
 
-<div class="min-h-screen bg-black">
-  <NavBar />
-  <main class="container mx-auto p-4">
+<div class="min-h-screen bg-black relative">
+  <div class="absolute top-0 left-0 right-0 z-50">
+    <NavBar />
+  </div>
+  <main class="h-screen">
     {@render children()}
   </main>
 </div>
