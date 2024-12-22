@@ -8,7 +8,7 @@ This Progressive Web App (PWA) provides a stark, real-time count of animals kill
 
 ## Live Demo
 
-[https://yourusername.github.io/ara-kill-clock/](https://yourusername.github.io/ara-kill-clock/)
+[https://stimul8d.github.io/ARA-Kill-Clock//](https://stimul8d.github.io/ARA-Kill-Clock//)
 
 ## Global Annual Death Statistics
 
