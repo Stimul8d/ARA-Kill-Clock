@@ -33,7 +33,7 @@ export const animalCounts = writable<AnimalCount[]>([
         annualRate: 124_061_094
     },
     { 
-        species: 'Cattle',
+        species: 'Cows',
         count: 0,
         annualRate: 36_163_973
     },

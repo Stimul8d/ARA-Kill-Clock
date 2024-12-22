@@ -1,6 +1,7 @@
 <script lang="ts">
   import { animalCounts } from '$lib/stores/killClock';
   import Counter from '$lib/components/Counter.svelte';
+  import TotalCounter from '$lib/components/TotalCounter.svelte';
   
   // Update counts every second based on annual rate
   let startTime = Date.now();
@@ -16,6 +17,8 @@
   
   updateCounts();
 </script>
+
+<TotalCounter />
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
   {#each $animalCounts as animal}
