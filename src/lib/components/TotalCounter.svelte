@@ -8,7 +8,6 @@
   $: formattedTotal = new Intl.NumberFormat('en-GB').format(Math.floor(totalCount));
   
   function formatElapsedTime(diff: number): string {
-  function formatElapsedTime(diff: number): string {
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
@@ -16,26 +15,16 @@
     const parts: string[] = [];
     
     if (hours > 0) {
-      parts.push(`${hours} hour${hours !== 1 ? 's' : ''}`);
-      parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
+      parts.push(hours + ' hour' + (hours !== 1 ? 's' : ''));
+      parts.push(minutes + ' minute' + (minutes !== 1 ? 's' : ''));
     } else if (minutes > 0) {
-      parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
+      parts.push(minutes + ' minute' + (minutes !== 1 ? 's' : ''));
     }
     
-    parts.push(`${seconds} second${seconds !== 1 ? 's' : ''}`);
+    parts.push(seconds + ' second' + (seconds !== 1 ? 's' : ''));
     
     const lastPart = parts.pop();
-    return parts.length ? `${parts.join(', ')} and ${lastPart}` : lastPart!;
-      parts.push(`${hours} hour${hours !== 1 ? 's' : ''}`);
-      parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
-    } else if (minutes > 0) {
-      parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
-    }
-    
-    parts.push(`${seconds} second${seconds !== 1 ? 's' : ''}`);
-    
-    const lastPart = parts.pop();
-    return parts.length ? `${parts.join(', ')} and ${lastPart}` : lastPart!;
+    return parts.length ? parts.join(', ') + ' and ' + lastPart : lastPart!;
   }
   
   function updateTotal() {
@@ -52,7 +41,6 @@
     In the last <span class="text-gray-400">{elapsedTime}</span><br>
     humans have taken the lives of
   </p>
-  <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center">
   <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center">
     <span class="font-mono text-red-500">{formattedTotal}</span>
     <span class="text-white">animals</span>
