@@ -16,7 +16,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: dev ? '' : '/ara-kill-clock'
+			base: dev ? '' : ''
 		}
 	}
 };
