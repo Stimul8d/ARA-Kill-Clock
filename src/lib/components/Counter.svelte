@@ -2,8 +2,20 @@
   import type { AnimalCount } from '../stores/killClock';
   
   export let animal: AnimalCount;
+  const FOUR_HOURS = 4 * 60 * 60 * 1000;
+  let startTime = Date.now();
+
+  function formatLongNumber(num: number): string {
+    if (num >= 1_000_000_000) {
+      return `${(num / 1_000_000_000).toFixed(3)}B`;
+    }
+    return `${(num / 1_000_000).toFixed(3)}M`;
+  }
   
-  $: formattedCount = new Intl.NumberFormat('en-US').format(Math.floor(animal.count));
+  $: isOverFourHours = Date.now() - startTime > FOUR_HOURS;
+  $: formattedCount = isOverFourHours 
+    ? formatLongNumber(Math.floor(animal.count))
+    : new Intl.NumberFormat('en-GB').format(Math.floor(animal.count));
 </script>
 
 <div class="flex flex-col items-center justify-center h-full">
