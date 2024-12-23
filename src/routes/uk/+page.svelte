@@ -5,19 +5,15 @@
   
   let startTime = Date.now();
   
-  animalCounts.setRegion('uk');
   $currentRegion = 'uk';
   
-  function updateCounts() {
+  function updateUKCounts() {
     const elapsedSeconds = (Date.now() - startTime) / 1000;
-    $animalCounts = $animalCounts.map(animal => ({
-      ...animal,
-      count: (animal.annualRate / (365 * 24 * 60 * 60)) * elapsedSeconds
-    }));
-    requestAnimationFrame(updateCounts);
+    animalCounts.updateCounts('uk', elapsedSeconds);
+    requestAnimationFrame(updateUKCounts);
   }
   
-  updateCounts();
+  updateUKCounts();
 </script>
 
 <div class="h-screen flex flex-col">

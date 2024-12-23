@@ -41,22 +41,16 @@ export const sourceData: Record<string, RegionData> = {
                 displayRate: "1.153 billion"
             },
             {
-                species: "Fish",
-                annualRate: 52_500_000,
-                displayRate: "28-77 million",
-                notes: "Average used for calculations. Range reflects uncertainty in farming methods."
-            },
-            {
                 species: "Shellfish",
                 annualRate: 4_400_000_000,
                 displayRate: "4.4 billion",
                 notes: "Excludes bycatch mortality"
             },
             {
-                species: "Ducks",
-                annualRate: 9_000_000,
-                displayRate: "9 million",
-                notes: "Includes geese"
+                species: "Fish",
+                annualRate: 52_500_000,
+                displayRate: "28-77 million",
+                notes: "Average used for calculations. Range reflects uncertainty in farming methods."
             },
             {
                 species: "Pigs",
@@ -68,6 +62,12 @@ export const sourceData: Record<string, RegionData> = {
                 annualRate: 14_415_000,
                 displayRate: "14.42 million",
                 notes: "Includes lambs"
+            },
+            {
+                species: "Ducks",
+                annualRate: 9_000_000,
+                displayRate: "9 million",
+                notes: "Includes geese"
             },
             {
                 species: "Turkeys",

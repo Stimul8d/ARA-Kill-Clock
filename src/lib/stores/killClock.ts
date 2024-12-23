@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 import { sourceData } from '../data/sources';
 
 export interface AnimalCount {
@@ -11,17 +11,16 @@ export const currentRegion = writable('global');
 
 // Create initial data structure
 function createAnimalCounts() {
-    const { subscribe, set, update } = writable<AnimalCount[]>([]);
+    const { subscribe, set } = writable<AnimalCount[]>([]);
 
     return {
         subscribe,
         set,
-        update,
-        setRegion: (region: string) => {
+        updateCounts: (region: string, elapsedSeconds: number) => {
             const regionData = sourceData[region].animals;
             set(regionData.map(animal => ({
                 species: animal.species,
-                count: 0,
+                count: (animal.annualRate / (365 * 24 * 60 * 60)) * elapsedSeconds,
                 annualRate: animal.annualRate
             })));
         }
