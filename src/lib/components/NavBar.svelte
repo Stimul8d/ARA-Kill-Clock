@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   
   const dev = process.env.NODE_ENV === 'development';
-  const sourcesUrl = dev ? '/sources' : 'https://bit.ly/Animal-Kill-Count';
+  const sourcesUrl = dev ? '/sources' : 'https://bit.ly/ara-animal-kill-clock';
 
   let regions = [
     { id: 'global', name: 'Global' }
@@ -12,7 +12,7 @@
 
 <nav class="w-full bg-black border-b border-gray-800 px-4 h-12 flex items-center justify-between">
   <a href="/" class="text-white text-lg font-medium hover:text-gray-200 transition-colors duration-200 flex items-center gap-2">
-    <span class="text-xl">💔</span>
+    <span>💔</span>
     Animal Kill Clock
   </a>
   <div class="flex items-center gap-8">
