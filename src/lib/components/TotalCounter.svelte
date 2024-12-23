@@ -5,12 +5,9 @@
   let elapsedTime = '';
   let totalCount = 0;
 
-  $: formattedTotal = new Intl.NumberFormat('en-US').format(Math.floor(totalCount));
+  $: formattedTotal = new Intl.NumberFormat('en-GB').format(Math.floor(totalCount));
   
-  function updateElapsedTime() {
-    const now = Date.now();
-    const diff = now - startTime;
-    
+  function formatElapsedTime(diff: number): string {
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
@@ -18,21 +15,21 @@
     const parts: string[] = [];
     
     if (hours > 0) {
-      parts.push(`<span class="font-mono">${hours}</span> hours`);
-    }
-    if (minutes > 0 || hours > 0) {
-      parts.push(`<span class="font-mono">${minutes}</span> minutes`);
-    }
-    if (seconds > 0 || (hours === 0 && minutes === 0)) {
-      parts.push(`<span class="font-mono">${seconds}</span> seconds`);
+      parts.push(`${hours} hour${hours !== 1 ? 's' : ''}`);
+      parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
+    } else if (minutes > 0) {
+      parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
     }
     
-    elapsedTime = parts.join(' ');
+    parts.push(`${seconds} second${seconds !== 1 ? 's' : ''}`);
+    
+    const lastPart = parts.pop();
+    return parts.length ? `${parts.join(', ')} and ${lastPart}` : lastPart!;
   }
   
   function updateTotal() {
     totalCount = $animalCounts.reduce((sum, animal) => sum + animal.count, 0);
-    updateElapsedTime();
+    elapsedTime = formatElapsedTime(Date.now() - startTime);
     requestAnimationFrame(updateTotal);
   }
   
@@ -41,10 +38,10 @@
 
 <div class="flex flex-col items-center justify-center gap-2 my-12">
   <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight">
-    In the last <span class="text-gray-400">{@html elapsedTime}</span>,<br>
+    In the last <span class="text-gray-400">{elapsedTime}</span>,<br>
     humans have taken the lives of
   </p>
-  <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight">
+  <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center">
     <span class="font-mono text-red-500">{formattedTotal}</span>
     <span class="text-white">animals</span>
   </div>
