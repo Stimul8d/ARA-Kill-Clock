@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { animalCounts } from '../stores/killClock';
+  import { animalCounts, currentRegion } from '../stores/killClock';
   
   let startTime = Date.now();
   let elapsedTime = '';
   let totalCount = 0;
 
   $: formattedTotal = new Intl.NumberFormat('en-GB').format(Math.floor(totalCount));
+  $: suffix = $currentRegion === 'uk' ? 'in the UK' : 'globally';
   
   function formatElapsedTime(diff: number): string {
     const hours = Math.floor(diff / (1000 * 60 * 60));
@@ -36,13 +37,13 @@
   updateTotal();
 </script>
 
-<div class="flex flex-col items-center justify-center gap-2 my-12">
-  <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight">
-    In the last <span class="text-gray-400">{elapsedTime}</span><br>
-    humans have taken the lives of
+<div class="flex flex-col items-center mt-4">
+  <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center leading-tight">
+    In the last <span class="text-gray-400">{elapsedTime}</span>
   </p>
-  <div class="text-5xl md:text-6xl lg:text-7xl font-bold text-center">
-    <span class="font-mono text-red-500">{formattedTotal}</span>
-    <span class="text-white">animals</span>
+  <div class="text-center px-4 flex flex-col">
+    <span class="font-mono text-red-500 text-[min(6vw,5rem)]">{formattedTotal}</span>
+    <span class="text-white text-3xl md:text-4xl lg:text-5xl font-bold">animals have been killed {suffix}</span>
   </div>
+  <div class="w-3/4 h-px bg-gray-800 my-12"></div>
 </div>

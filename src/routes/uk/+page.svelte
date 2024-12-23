@@ -5,8 +5,8 @@
   
   let startTime = Date.now();
   
-  animalCounts.setRegion('global');
-  $currentRegion = 'global';
+  animalCounts.setRegion('uk');
+  $currentRegion = 'uk';
   
   function updateCounts() {
     const elapsedSeconds = (Date.now() - startTime) / 1000;

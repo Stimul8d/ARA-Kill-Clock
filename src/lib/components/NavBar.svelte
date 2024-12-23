@@ -4,9 +4,11 @@
   const dev = process.env.NODE_ENV === 'development';
   const sourcesUrl = dev ? '/sources' : 'https://bit.ly/ara-animal-kill-clock';
 
-  let regions = [
-    { id: 'global', name: 'Global' }
+  const regions = [
+    { id: 'global', name: 'Global' },
+    { id: 'uk', name: 'UK' }
   ];
+
   let activeRegion = regions[0];
 </script>
 
@@ -16,6 +18,16 @@
     Animal Kill Clock
   </a>
   <div class="flex items-center gap-8">
+    <div class="flex gap-2">
+      {#each regions as region}
+        <a 
+          href="/{region.id === 'global' ? '' : region.id}"
+          class="px-3 py-1 rounded text-sm {$page.url.pathname === (region.id === 'global' ? '/' : `/${region.id}`) ? 'bg-white text-black' : 'text-white'}"
+        >
+          {region.name}
+        </a>
+      {/each}
+    </div>
     {#if $page.url.pathname !== '/sources'}
       <a 
         href={sourcesUrl}
@@ -26,15 +38,5 @@
         Check our sources →
       </a>
     {/if}
-    <div class="flex gap-4">
-      {#each regions as region}
-        <button 
-          class="px-3 py-1 rounded text-sm {activeRegion.id === region.id ? 'bg-white text-black' : 'text-white'}"
-          on:click={() => activeRegion = region}
-        >
-          {region.name}
-        </button>
-      {/each}
-    </div>
   </div>
 </nav>
