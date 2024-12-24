@@ -37,13 +37,13 @@
   updateTotal();
 </script>
 
-<div class="flex flex-col items-center mt-4">
+<div class="flex flex-col items-center">
   <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center leading-tight">
     In the last <span class="text-gray-400">{elapsedTime}</span>
   </p>
   <div class="text-center px-4 flex flex-col">
     <span class="font-mono text-red-500 text-[min(6vw,5rem)]">{formattedTotal}</span>
-    <span class="text-white text-3xl md:text-4xl lg:text-5xl font-bold">animals have been killed {suffix}</span>
+    <span class="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-12">animals have been killed {suffix}</span>
   </div>
-  <div class="w-3/4 h-px bg-gray-800 my-12"></div>
+  <div class="w-3/4 h-px bg-gray-800 mb-4 md:mb-12"></div>
 </div>

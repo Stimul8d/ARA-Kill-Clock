@@ -16,11 +16,11 @@
   updateGlobalCounts();
 </script>
 
-<div class="h-screen flex flex-col">
+<div class="min-h-screen bg-black">
   <div class="pt-12"> 
     <TotalCounter />
   </div>
-  <div class="flex-1 grid grid-cols-4 gap-4 px-4" style="padding-bottom: min(5vh, 80px);">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 px-4 pb-8">
     {#each $animalCounts as animal}
       <Counter {animal} />
     {/each}
