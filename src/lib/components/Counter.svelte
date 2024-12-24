@@ -3,7 +3,14 @@
   
   export let animal: AnimalCount;
   
-  $: formattedCount = new Intl.NumberFormat('en-GB').format(Math.floor(animal.count));
+  function formatCount(num: number): string {
+    if (num >= 1_000_000) {
+      return `${(num / 1_000_000).toFixed(3)}M`;
+    }
+    return new Intl.NumberFormat('en-GB').format(Math.floor(num));
+  }
+  
+  $: formattedCount = formatCount(Math.floor(animal.count));
 </script>
 
 <div class="flex flex-col">
