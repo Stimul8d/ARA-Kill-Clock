@@ -36,15 +36,15 @@ export const sourceData: Record<string, RegionData> = {
         ],
         animals: [
             {
-                species: "Chickens",
-                annualRate: 1_153_000_000,
-                displayRate: "1.153 billion"
-            },
-            {
                 species: "Shellfish",
                 annualRate: 4_400_000_000,
                 displayRate: "4.4 billion",
                 notes: "Excludes bycatch mortality"
+            },
+            {
+                species: "Chickens",
+                annualRate: 1_153_000_000,
+                displayRate: "1.153 billion"
             },
             {
                 species: "Fish",
@@ -53,15 +53,15 @@ export const sourceData: Record<string, RegionData> = {
                 notes: "Average used for calculations. Range reflects uncertainty in farming methods."
             },
             {
-                species: "Pigs",
-                annualRate: 9_811_000,
-                displayRate: "9.81 million"
-            },
-            {
                 species: "Sheep",
                 annualRate: 14_415_000,
                 displayRate: "14.42 million",
                 notes: "Includes lambs"
+            },
+            {
+                species: "Pigs",
+                annualRate: 9_811_000,
+                displayRate: "9.81 million"
             },
             {
                 species: "Ducks",
