@@ -2,11 +2,22 @@
   import { sourceData } from '$lib/data/sources';
   
   let activeTab = 'global';
+
+  function calculateRates(annualRate: number) {
+    const perDay = Math.round(annualRate / 365);
+    const perHour = Math.round(perDay / 24);
+    const perSecond = Math.round((perHour / 3600) * 100) / 100;
+    
+    return {
+      day: new Intl.NumberFormat('en-GB').format(perDay),
+      hour: new Intl.NumberFormat('en-GB').format(perHour),
+      second: new Intl.NumberFormat('en-GB').format(perSecond)
+    };
+  }
 </script>
 
 <div class="h-screen overflow-auto pt-20 pb-8 px-4 md:px-8">
   <div class="max-w-4xl mx-auto">
-    <!-- Key Information Banner -->
     <div class="mb-12 p-6 bg-gray-900 rounded-lg">
       <h2 class="text-2xl text-white font-bold mb-4">About These Statistics</h2>
       <ul class="space-y-3 text-gray-300">
@@ -18,7 +29,6 @@
       </ul>
     </div>
 
-    <!-- Region Tabs -->
     <div class="mb-8 border-b border-gray-800">
       <div class="flex space-x-8">
         <button
@@ -28,6 +38,16 @@
         >
           Global Statistics
           {#if activeTab === 'global'}
+            <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-white"></div>
+          {/if}
+        </button>
+        <button
+          class="pb-4 text-lg font-medium transition-colors duration-200 relative {activeTab === 'us' ? 'text-white' : 'text-gray-500 hover:text-gray-300'}"
+          class:active={activeTab === 'us'}
+          on:click={() => activeTab = 'us'}
+        >
+          US Statistics
+          {#if activeTab === 'us'}
             <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-white"></div>
           {/if}
         </button>
@@ -44,7 +64,6 @@
       </div>
     </div>
 
-    <!-- Region Content -->
     {#each Object.entries(sourceData) as [id, region]}
       {#if id === activeTab}
         <div class="space-y-8">
@@ -77,12 +96,16 @@
 
             <div class="space-y-6">
               {#each region.animals as animal}
+                {@const rates = calculateRates(animal.annualRate)}
                 <div class="border-b border-gray-800 pb-6">
                   <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-3">
                     <h3 class="text-xl text-white font-bold">{animal.species}</h3>
                     <div class="font-mono text-lg text-red-500">
                       {animal.displayRate}
                     </div>
+                  </div>
+                  <div class="text-gray-500 text-sm mb-3">
+                    ~{rates.day} per day • ~{rates.hour} per hour • ~{rates.second} per second
                   </div>
                   {#if animal.source}
                     <div class="text-gray-400 text-sm mt-2">

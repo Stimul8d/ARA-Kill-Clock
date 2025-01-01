@@ -8,8 +8,16 @@
 
   const regions = [
     { id: 'global', name: 'Global' },
+    { id: 'us', name: 'US' },
     { id: 'uk', name: 'UK' }
   ];
+
+  $: isSelected = (region: { id: string }) => {
+    if (region.id === 'global') {
+      return $page.url.pathname === base || $page.url.pathname === base + '/';
+    }
+    return $page.url.pathname === `${base}/${region.id}`;
+  };
 
   let menuButton: HTMLElement;
   let menuDropdown: HTMLElement;
@@ -42,7 +50,7 @@
       {#each regions as region}
         <a 
           href="{region.id === 'global' ? base : `${base}/${region.id}`}"
-          class="px-3 py-1 rounded text-sm {$page.url.pathname === (region.id === 'global' ? '/' : `/${region.id}`) ? 'bg-white text-black' : 'text-white'}"
+          class="px-3 py-1 rounded text-sm {isSelected(region) ? 'bg-white text-black' : 'text-white'}"
         >
           {region.name}
         </a>
@@ -80,7 +88,7 @@
       {#each regions as region}
         <a 
           href="{region.id === 'global' ? base : `${base}/${region.id}`}"
-          class="block px-4 py-2 text-sm {$page.url.pathname === (region.id === 'global' ? '/' : `/${region.id}`) ? 'bg-white text-black' : 'text-white hover:bg-gray-900'}"
+          class="block px-4 py-2 text-sm {isSelected(region) ? 'bg-white text-black' : 'text-white hover:bg-gray-900'}"
           on:click={() => isMenuOpen = false}
         >
           {region.name}

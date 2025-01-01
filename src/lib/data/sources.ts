@@ -162,6 +162,72 @@ export const sourceData: Record<string, RegionData> = {
                 }
             }
         ]
+    },
+    us: {
+        name: "United States",
+        description: "Annual animal deaths in US food industry (2020)",
+        source: {
+            name: "USDA ERS",
+            url: "https://www.ers.usda.gov/data-products/livestock-and-meat-domestic-data/livestock-and-meat-domestic-data/#Livestock%20and%20poultry%20slaughter"
+        },
+        notes: [
+            "Raw slaughter figures from USDA 2020 data",
+            "Fish and shellfish data from 2013 analysis"
+        ],
+        animals: [
+            {
+                species: "Shellfish",
+                annualRate: 43_109_000_000,
+                displayRate: "43.1 billion",
+                source: {
+                    name: "Counting Animals",
+                    url: "https://countinganimals.com/how-many-animals-does-a-vegetarian-save/"
+                },
+                notes: "2013 estimate"
+            },
+            {
+                species: "Chickens",
+                annualRate: 9_346_660_000,
+                displayRate: "9.35 billion"
+            },
+            {
+                species: "Fish",
+                annualRate: 3_797_000_000,
+                displayRate: "3.8 billion",
+                source: {
+                    name: "Counting Animals",
+                    url: "https://countinganimals.com/how-many-animals-does-a-vegetarian-save/"
+                },
+                notes: "2013 estimate"
+            },
+            {
+                species: "Turkeys",
+                annualRate: 223_003_000,
+                displayRate: "223 million"
+            },
+            {
+                species: "Pigs",
+                annualRate: 131_563_000,
+                displayRate: "131.6 million"
+            },
+            {
+                species: "Cows",
+                annualRate: 33_242_000,
+                displayRate: "33.2 million",
+                notes: "Includes cattle and calves"
+            },
+            {
+                species: "Ducks",
+                annualRate: 22_484_000,
+                displayRate: "22.5 million"
+            },
+            {
+                species: "Sheep",
+                annualRate: 2_225_000,
+                displayRate: "2.23 million",
+                notes: "Includes lambs"
+            }
+        ]
     }
 };
 
