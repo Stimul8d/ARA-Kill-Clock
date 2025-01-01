@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css';
   import NavBar from '$lib/components/NavBar.svelte';
-  let { children } = $props();
+  import CookieConsent from '$lib/components/CookieConsent.svelte';
 </script>
 
 <div class="min-h-screen bg-black relative">
@@ -9,6 +9,7 @@
     <NavBar />
   </div>
   <main class="h-screen">
-    {@render children()}
+    <slot />
   </main>
 </div>
+<CookieConsent />
