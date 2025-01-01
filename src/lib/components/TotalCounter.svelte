@@ -6,7 +6,8 @@
   let totalCount = 0;
 
   $: formattedTotal = new Intl.NumberFormat('en-GB').format(Math.floor(totalCount));
-  $: suffix = $currentRegion === 'uk' ? 'in the UK' : 'globally';
+  $: suffix = $currentRegion === 'uk' ? 'in the UK' : 
+              $currentRegion === 'us' ? 'in the US' : 'globally';
   
   function formatElapsedTime(diff: number): string {
     const hours = Math.floor(diff / (1000 * 60 * 60));
